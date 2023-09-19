@@ -25,12 +25,11 @@ const { title } = Astro.props;
 	</body>
 </html>
 <style is:global>
+	@import "open-props/normalize";
 
 @font-face {
 	font-family: 'ClashDisplay-Variable';
-	src: url('../fonts/ClashDisplay-Variable.woff2') format('woff2'),
-       url('../fonts/ClashDisplay-Variable.woff') format('woff'),
-       url('../fonts/ClashDisplay-Variable.ttf') format('truetype');
+	src: url('/fonts/ClashDisplay-Variable.woff2') format('woff2');
   font-weight: 200 700;
 	font-display: swap;
 	font-style: normal;
@@ -48,7 +47,7 @@ const { title } = Astro.props;
 	}
 	html {
 		/* font-family: system-ui, sans-serif; */
-		font-family: 'ClashDisplay-Variable', sans-serif;
+		font-family: 'ClashDisplay-Variable', system-ui, sans-serif;
 		background: #13151a;
 		background-size: 224px;
 	}
