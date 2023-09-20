@@ -1,0 +1,41 @@
+{
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#5ea48a",
+    "activityBar.background": "#5ea48a",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#e1d6e8",
+    "activityBarBadge.foreground": "#15202b",
+    "commandCenter.border": "#e7e7e799",
+    "sash.hoverBorder": "#5ea48a",
+    "statusBar.background": "#4b846f",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#5ea48a",
+    "statusBarItem.remoteBackground": "#4b846f",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "titleBar.activeBackground": "#4b846f",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#4b846f99",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  },
+  "peacock.color": "#4b846f",
+  "cssvar.files": [
+    "./node_modules/open-props/open-props.min.css"
+    // if you have an alternative path to where your styles are located
+    // you can add it in this array of files
+    // "assets/styles/variables.css"
+  ],
+
+  // Do not ignore node_modules css files, which is ignored by default
+  "cssvar.ignore": [],
+
+  // add support for autocomplete in JS or JS like files
+  "cssvar.extensions": ["css", "postcss", "jsx", "tsx", "astro"],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "astro", // Enable .astro
+    "typescript", // Enable .ts
+    "typescriptreact" // Enable .tsx
+  ]
+}
