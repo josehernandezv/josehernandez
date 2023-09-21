@@ -1,8 +1,15 @@
 const postcssJitProps = require("postcss-jit-props");
-const OpenProps = require("open-props");
-const autoprefixer = require("autoprefixer");
 
 module.exports = {
-  plugins: [postcssJitProps(OpenProps)],
-  autoprefixer,
+  plugins: [
+    require("postcss-custom-media"),
+    require("autoprefixer"),
+    postcssJitProps(require("open-props")),
+    require("postcss-preset-env")({
+      stage: 0,
+      features: {
+        "custom-media-queries": true,
+      },
+    }),
+  ],
 };

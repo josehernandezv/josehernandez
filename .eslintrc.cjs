@@ -22,6 +22,12 @@ module.exports = {
         // "astro/no-set-html-directive": "error"
       },
     },
+    {
+      files: ["*.cjs"],
+      parserOptions: {
+        ecmaVersion: "latest",
+      },
+    },
     // ...
   ],
 };

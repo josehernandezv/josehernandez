@@ -1,0 +1,222 @@
+---
+import { Icon } from "astro-icon";
+
+const links = [
+  {
+    href: "/",
+    text: "About Me",
+  },
+  {
+    href: "/",
+    text: "Projects",
+  },
+  {
+    href: "/",
+    text: "Uses",
+  },
+  {
+    href: "/",
+    text: "Resume",
+  },
+];
+---
+
+<nav>
+  <a href="/" class="logo">
+    <span>José Hernández</span>
+  </a>
+  <button aria-expanded="false" aria-label="Toggle navigation" id="menu-button">
+    <Icon pack="fe" name="bar" />
+    <Icon pack="fe" name="close" />
+  </button>
+  <ul class="nav-links">
+    <!-- <li>
+      <a href="/blog">Blog</a>
+      <div class="nav-link-underline"></div>
+    </li>
+    <li class="active">
+      <a href="/blog">Blog</a>
+      <div class="nav-link-underline"></div>
+    </li>
+    <li>
+      <a href="/blog">Blog</a>
+      <div class="nav-link-underline"></div>
+    </li>
+    <li>
+      <a href="/blog">Blog</a>
+      <div class="nav-link-underline"></div>
+    </li> -->
+    {
+      links.map((li) => (
+        <li>
+          <a href={li.href}>{li.text}</a>
+          <div class="nav-link-underline" />
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style>
+  @import "open-props/media";
+
+  nav {
+    border-bottom: var(--border-size-1) solid var(--sand-10);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--size-fluid-5);
+  }
+  .logo {
+    padding-left: var(--size-fluid-2);
+    padding-right: var(--size-fluid-2);
+    margin: 0;
+  }
+  .logo span {
+    font-size: var(--font-size-fluid-2);
+    font-weight: var(--font-weight-9);
+    color: var(--sand-10);
+  }
+  .logo:hover {
+    text-decoration: none;
+  }
+  button {
+    border: none;
+    /* background: var(--sand-10); */
+    background-color: transparent;
+    padding-left: var(--size-fluid-2);
+    padding-right: var(--size-fluid-2);
+    margin: 0;
+    height: 100%;
+  }
+  button [astro-icon] {
+    color: var(--sand-10);
+    inline-size: var(--size-7);
+    block-size: var(--size-7);
+  }
+
+  button [astro-icon="fe:close"] {
+    display: none;
+  }
+
+  .nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-fluid-2);
+    padding: var(--size-fluid-2);
+    top: var(--size-fluid-5);
+    left: 0;
+    right: 0;
+    background: var(--sand-1);
+    border-bottom: var(--border-size-1) solid var(--sand-10);
+    transform: translateY(-200%);
+    /* transition: transform 0.3s var(--ease-spring-1); */
+  }
+
+  .nav-links li {
+    width: 100%;
+    display: block;
+    font-size: var(--font-size-1);
+    padding: 0;
+  }
+  .nav-links li a {
+    color: var(--sand-10);
+    text-decoration: none;
+  }
+  .nav-links .active {
+    font-weight: var(--font-weight-7);
+  }
+  #menu-button[aria-expanded="true"] ~ .nav-links {
+    transform: translateY(0);
+  }
+  #menu-button[aria-expanded="true"] [astro-icon="fe:bar"] {
+    display: none;
+  }
+  #menu-button[aria-expanded="true"] [astro-icon="fe:close"] {
+    display: block;
+  }
+
+  @media (--md-n-above) {
+    .logo span {
+      font-size: var(--font-size-fluid-1);
+    }
+    #menu-button {
+      display: none;
+    }
+    .nav-links {
+      position: static;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: var(--size-fluid-4);
+      padding: 0;
+      inset: initial;
+      background: transparent;
+      border-bottom: none;
+      transform: translateY(0);
+      height: 100%;
+    }
+    .nav-links li {
+      position: relative;
+      width: auto;
+    }
+    .nav-link-underline {
+      width: 0%;
+      height: var(--border-size-1);
+      background: var(--sand-10);
+      transition: width 0.3s var(--ease-spring-1);
+      position: absolute;
+      bottom: 0%;
+      left: 0%;
+      right: auto;
+      top: auto;
+    }
+    .nav-links li:hover .nav-link-underline {
+      width: 100%;
+    }
+    .nav-links .active .nav-link-underline {
+      width: 100%;
+    }
+    /* select last nav-link li */
+    .nav-links li:last-child {
+      height: 100%;
+      box-sizing: border-box;
+    }
+    .nav-links li:last-child a {
+      background-color: var(--sand-10);
+      color: var(--sand-1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      margin: 0;
+      padding-left: var(--size-fluid-2);
+      padding-right: var(--size-fluid-2);
+      box-sizing: border-box;
+      border: var(--border-size-1) solid var(--sand-10);
+      border-bottom: 0;
+    }
+    .nav-links li:last-child:hover .nav-link-underline {
+      width: 0%;
+    }
+    .nav-links li:last-child a:hover {
+      background-color: var(--sand-1);
+      color: var(--sand-10);
+    }
+  }
+</style>
+
+<script>
+  const menuButton = document.getElementById("menu-button");
+  // const menu = document.querySelector("nav + div");
+
+  menuButton?.addEventListener("click", () => {
+    const expanded = menuButton.getAttribute("aria-expanded") === "true";
+    menuButton.setAttribute("aria-expanded", String(!expanded));
+    // menu.hidden = expanded;
+  });
+</script>
