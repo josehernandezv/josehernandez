@@ -1,30 +1,101 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+
+const preHeadline = "Hello internet 👋";
+const headline = "I'm José!";
+
+const about =
+  "I'm a software engineer based in Costa Rica. I am currently working as a Mobile and Web Developer. I am passionate about design, technology and I love to learn new things.";
 ---
 
 <Layout title="Welcome to Astro.">
-  <main>
-    <h1>Hello</h1>
-  </main>
+  <section class="hero container">
+    <h1>
+      {preHeadline}<br /><strong>{headline}</strong>
+    </h1>
+    <p>
+      {about}
+    </p>
+    <!-- <div class="button-list">
+        <button class="primary">Get started</button>
+        <button>Live demo</button>
+      </div> -->
+  </section>
 </Layout>
 
 <style is:global>
+  @import "open-props/colors-hsl";
+
   :root {
-    --background: #85af97;
     --primary: #39675d;
     --primary-text: #c5d0b2;
+    --secondary: #5e8c7b;
     --text-1: #15221b;
     --text-2: #21443e;
     --accent: #f3983c;
     --accent-text: #15221b;
     --stroke: #15221b;
-    /* --brand: var(--purple-5);
-    --text-1: var(--purple-9);
-    --text-2: var(--purple-7);
-    --surface-1: var(--purple-0);
-    --surface-2: var(--purple-1);
-    --surface-3: var(--purple-2);
-    --surface-4: var(--purple-3); */
+    --surface: hsl(146, 21%, 60%);
+    --surface-2: hsl(146, 21%, 50%);
+    --surface-3: hsl(146, 21%, 40%);
+    --surface-4: hsl(146, 21%, 30%);
+    /* --brand: var(--purple-5); */
+  }
+</style>
+
+<style>
+  @import "open-props/media";
+
+  .hero {
+    padding: var(--size-fluid-6) var(--size-fluid-2);
+    max-width: var(--size-lg);
+    margin-inline: auto;
+  }
+
+  h1 {
+    color: var(--text-2);
+    font-weight: var(--font-weight-6);
+    font-size: var(--font-size-4);
+    /* line-height: var(--font-lineheight-0); */
+  }
+
+  h1 strong {
+    color: var(--text-1);
+    font-weight: var(--font-weight-9);
+    /* font-size: var(--font-size-fluid-3); */
+    /* font-size: var(--font-size-8); */
+    font-size: clamp(3.5rem, 10vw, 4.5rem);
+  }
+
+  .hero p {
+    margin-top: var(--size-4);
+    font-size: var(--font-size-3);
+    font-weight: var(--font-weight-5);
+    margin-block-end: var(--size-3);
+  }
+
+  .button-list {
+    display: flex;
+    gap: var(--size-3);
+  }
+
+  button {
+    background: white;
+    color: var(--indigo-8);
+    font-size: var(--font-size-3);
+    padding-inline: var(--size-8);
+    padding-block: var(--size-3);
+    border-radius: var(--radius-2);
+    box-shadow: var(--shadow-2);
+  }
+
+  button.primary {
+    background: var(--indigo-8);
+    text-shadow: 0 1px 0 var(--indigo-9);
+    color: white;
+  }
+
+  button.primary:hover {
+    background: var(--indigo-7);
   }
 </style>
