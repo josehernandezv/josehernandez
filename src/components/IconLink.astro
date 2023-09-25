@@ -1,0 +1,36 @@
+---
+import { Icon } from "astro-icon";
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"a"> {
+  name: string;
+  pack?: string;
+  color?: string;
+}
+const { href, name, color, pack = "fe", ...attrs } = Astro.props;
+---
+
+<a href={href} {...attrs}>
+  <Icon name={name} pack={pack} />
+</a>
+
+<style define:vars={{ iconColor: color }}>
+  a {
+    background-color: var(--secondary);
+    box-shadow: var(--shadow);
+    border: var(--border-size-2) solid var(--stroke);
+    transition: 0.2s;
+  }
+
+  a:hover {
+    box-shadow: 0 0 0 0 var(--shadow-hover);
+    transform: translate(var(--size-1), var(--size-1));
+    background-color: var(--iconColor);
+  }
+
+  [astro-icon] {
+    color: var(--stroke);
+    inline-size: var(--size-7);
+    block-size: var(--size-7);
+  }
+</style>

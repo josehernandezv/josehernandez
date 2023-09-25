@@ -1,11 +1,14 @@
 ---
+import IconLink from "../components/IconLink.astro";
 import Layout from "../layouts/Layout.astro";
 
 const preHeadline = "Hello internet 👋";
-const headline = "I'm José!";
-
+const headline = "I'm José.";
 const about =
   "I'm a software engineer based in Costa Rica. I am currently working as a Mobile and Web Developer. I am passionate about design, technology and I love to learn new things.";
+const github = "https://github.com/josehernandezv";
+const youtube = "https://www.youtube.com/@josedev.";
+const linkedin = "https://www.linkedin.com/in/joseahernandezv/";
 ---
 
 <Layout title="Welcome to Astro.">
@@ -16,6 +19,17 @@ const about =
     <p>
       {about}
     </p>
+    <div class="links">
+      <IconLink name="github" href={github} target="_blank" color="#FAFBFC" />
+      <IconLink
+        name="linkedin"
+        pack="feather"
+        href={linkedin}
+        target="_blank"
+        color="#0077B5"
+      />
+      <IconLink name="youtube" href={youtube} target="_blank" color="#FF0000" />
+    </div>
     <!-- <div class="button-list">
         <button class="primary">Get started</button>
         <button>Live demo</button>
@@ -39,6 +53,8 @@ const about =
     --surface-2: hsl(146, 21%, 50%);
     --surface-3: hsl(146, 21%, 40%);
     --surface-4: hsl(146, 21%, 30%);
+    --shadow: var(--size-1) var(--size-1) 0 0 var(--text-1);
+    --shadow-hover: 0px 0px 0 0 var(--text-1);
     /* --brand: var(--purple-5); */
   }
 </style>
@@ -74,28 +90,8 @@ const about =
     margin-block-end: var(--size-3);
   }
 
-  .button-list {
+  .links {
     display: flex;
-    gap: var(--size-3);
-  }
-
-  button {
-    background: white;
-    color: var(--indigo-8);
-    font-size: var(--font-size-3);
-    padding-inline: var(--size-8);
-    padding-block: var(--size-3);
-    border-radius: var(--radius-2);
-    box-shadow: var(--shadow-2);
-  }
-
-  button.primary {
-    background: var(--indigo-8);
-    text-shadow: 0 1px 0 var(--indigo-9);
-    color: white;
-  }
-
-  button.primary:hover {
-    background: var(--indigo-7);
+    gap: var(--size-4);
   }
 </style>
