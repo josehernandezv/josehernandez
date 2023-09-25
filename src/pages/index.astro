@@ -13,22 +13,31 @@ const linkedin = "https://www.linkedin.com/in/joseahernandezv/";
 
 <Layout title="Welcome to Astro.">
   <section class="hero container">
-    <h1>
-      {preHeadline}<br /><strong>{headline}</strong>
-    </h1>
-    <p>
-      {about}
-    </p>
-    <div class="links">
-      <IconLink name="github" href={github} target="_blank" color="#FAFBFC" />
-      <IconLink
-        name="linkedin"
-        pack="feather"
-        href={linkedin}
-        target="_blank"
-        color="#0077B5"
-      />
-      <IconLink name="youtube" href={youtube} target="_blank" color="#FF0000" />
+    <div class="card headline">
+      <h1>
+        {preHeadline}<br /><strong>{headline}</strong>
+      </h1>
+    </div>
+    <div class="card">
+      <p>
+        {about}
+      </p>
+      <div class="links">
+        <IconLink name="github" href={github} target="_blank" color="#FAFBFC" />
+        <IconLink
+          name="linkedin"
+          pack="feather"
+          href={linkedin}
+          target="_blank"
+          color="#0077B5"
+        />
+        <IconLink
+          name="youtube"
+          href={youtube}
+          target="_blank"
+          color="#FF0000"
+        />
+      </div>
     </div>
     <!-- <div class="button-list">
         <button class="primary">Get started</button>
@@ -68,6 +77,30 @@ const linkedin = "https://www.linkedin.com/in/joseahernandezv/";
     margin-inline: auto;
   }
 
+  .card {
+    border: var(--border-size-2) solid var(--stroke);
+    padding: var(--size-3);
+    display: inline-block;
+    box-shadow: var(--shadow);
+    background-color: var(--surface);
+  }
+
+  .headline {
+    border-bottom: 0;
+    position: relative;
+    top: var(--border-size-2);
+  }
+
+  .headline:after {
+    content: "";
+    position: absolute;
+    bottom: calc(var(--border-size-3) * -1);
+    left: 0;
+    width: 110%;
+    height: var(--border-size-3);
+    background: var(--surface);
+  }
+
   h1 {
     color: var(--text-2);
     font-weight: var(--font-weight-6);
@@ -84,7 +117,6 @@ const linkedin = "https://www.linkedin.com/in/joseahernandezv/";
   }
 
   .hero p {
-    margin-top: var(--size-3);
     font-size: var(--font-size-3);
     font-weight: var(--font-weight-5);
     margin-block-end: var(--size-3);

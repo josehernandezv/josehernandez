@@ -52,7 +52,7 @@ const { title } = Astro.props;
   html {
     /* font-family: system-ui, sans-serif; */
     font-family: "ClashDisplay-Variable", system-ui, sans-serif;
-    background-color: var(--surface);
+    background-color: var(--surface-2);
     color: var(--text-1);
     accent-color: var(--accent);
   }
@@ -75,23 +75,24 @@ const { title } = Astro.props;
 
   header {
     border-bottom: var(--border-size-2) solid var(--stroke);
+    background-color: var(--surface);
   }
 
   main {
     background-repeat: repeat;
     background-image: repeating-linear-gradient(
         to right,
-        var(--surface-2),
-        var(--surface-2) 1px,
+        var(--surface-3),
+        var(--surface-3) 1px,
         transparent 1px,
-        transparent var(--size-3)
+        transparent var(--size-7)
       ),
       repeating-linear-gradient(
         to bottom,
-        var(--surface-2),
-        var(--surface-2) 1px,
+        var(--surface-3),
+        var(--surface-3) 1px,
         transparent 1px,
-        transparent var(--size-3)
+        transparent var(--size-7)
       );
   }
 </style>
