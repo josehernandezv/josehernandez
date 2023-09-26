@@ -1,0 +1,79 @@
+---
+const items = [
+  "Web developer",
+  "Mobile developer",
+  "Karate atlhete",
+  // "Youtuber",
+];
+---
+
+<div class="wrap">
+  <div class="ticker">
+    {items.map((item) => <div class="item">{item}</div>)}
+  </div>
+</div>
+
+<style>
+  @import "open-props/media";
+  :root {
+    --end: -300%;
+  }
+  /* (A) FIXED WRAPPER */
+  .wrap {
+    overflow: hidden; /* HIDE SCROLL BAR */
+    background: var(--text-1);
+  }
+
+  /* (B) MOVING TICKER WRAPPER */
+  .ticker {
+    display: flex;
+    animation: ticker 20s linear infinite;
+  }
+
+  .ticker:hover {
+    animation-play-state: paused;
+  }
+
+  /* (C) ITEMS - INTO A LONG HORIZONTAL ROW */
+  .item {
+    flex-shrink: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: var(--size-2);
+    text-align: center;
+    color: var(--surface);
+    font-size: var(--font-size-1);
+  }
+
+  /* (D) ANIMATION - MOVE ITEMS FROM RIGHT TO LEFT */
+  /* 4 ITEMS -400%, CHANGE THIS IF YOU ADD/REMOVE ITEMS */
+  @keyframes ticker {
+    0% {
+      transform: translate3d(100%, 0, 0);
+    }
+    100% {
+      transform: translate3d(var(--end), 0, 0);
+    }
+  }
+
+  @media (--md-n-above) {
+    :root {
+      --end: -150%;
+    }
+    .item {
+      width: 50%;
+    }
+  }
+
+  @media (--lg-n-above) {
+    :root {
+      --end: -100%;
+    }
+    .item {
+      width: 25%;
+    }
+    /* .ticker {
+      animation-duration: 25s;
+    } */
+  }
+</style>
