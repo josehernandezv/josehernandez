@@ -28,6 +28,10 @@ module.exports = {
         ecmaVersion: "latest",
       },
     },
+    {
+      files: ["*.ts"],
+      parser: "@typescript-eslint/parser",
+    },
     // ...
   ],
 };

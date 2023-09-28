@@ -1,0 +1,50 @@
+---
+import { Image } from "astro:assets";
+import BaseLayout from "./Layout.astro";
+
+import type { CollectionEntry } from "astro:content";
+interface Props {
+  frontmatter: CollectionEntry<"blog">["data"];
+}
+
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout title={frontmatter.title}>
+  <div class="cover">
+    <Image src={frontmatter.cover} alt={frontmatter.coverAlt} />
+  </div>
+  <div class="content">
+    <slot />
+  </div>
+</BaseLayout>
+
+<style>
+  @import "open-props/media";
+
+  .cover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  img {
+    max-width: min(100%, var(--size-lg));
+    border: var(--border-size-2) solid var(--stroke);
+    border-top: none;
+  }
+
+  .content {
+    width: min(100%, var(--size-lg));
+    margin-inline: auto;
+    background-color: var(--surface);
+    padding: var(--size-fluid-2);
+  }
+
+  @media (--lg-n-above) {
+    .content {
+      border-left: var(--border-size-2) solid var(--stroke);
+      border-right: var(--border-size-2) solid var(--stroke);
+    }
+  }
+</style>

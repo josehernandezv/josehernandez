@@ -48,6 +48,8 @@ const { title } = Astro.props;
     text-rendering: optimizeLegibility;
   }
   :root {
+    --shadow: var(--size-1) var(--size-1) 0 0 var(--text-1);
+    --shadow-hover: 0px 0px 0 0 var(--text-1);
   }
   html {
     /* font-family: system-ui, sans-serif; */
@@ -66,11 +68,6 @@ const { title } = Astro.props;
       Bitstream Vera Sans Mono,
       Courier New,
       monospace;
-  }
-
-  .container {
-    width: min(100%, var(--size-xxl));
-    margin-inline: auto;
   }
 
   header {
@@ -94,5 +91,10 @@ const { title } = Astro.props;
         transparent 1px,
         transparent var(--size-7)
       );
+  }
+
+  .container {
+    width: min(100%, var(--size-xxl));
+    margin-inline: auto;
   }
 </style>

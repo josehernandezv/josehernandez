@@ -1,25 +1,14 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import { Image } from "astro:assets";
-import deskImage from "../assets/desk.jpeg";
+import MarkdownPostLayout from "../layouts/MarkdownPostLayout.astro";
+import { getEntry } from "astro:content";
+
+const entry = await getEntry("blog", "uses");
+const { Content } = await entry.render();
 ---
 
-<Layout title="Welcome to Astro.">
-  <main class="container">
-    <div class="headline">
-      <Image src={deskImage} alt="My desk setup" />
-      <h1>Uses</h1>
-    </div>
-    <!-- very basic markup to test normalize 	 -->
-    <p>Here are some of the tools and services I use to build websites.</p>
-    <ul>
-      <li>VSCode</li>
-      <li>GitHub</li>
-      <li>Netlify</li>
-    </ul>
-    <a href="/">Go home</a>
-  </main>
-</Layout>
+<MarkdownPostLayout frontmatter={entry.data}>
+  <Content />
+</MarkdownPostLayout>
 
 <style is:global>
   :root {
@@ -35,22 +24,5 @@ import deskImage from "../assets/desk.jpeg";
     --surface-2: hsl(41, 79%, 43%);
     --surface-3: hsl(41, 79%, 33%);
     --surface-4: hsl(41, 79%, 23%);
-    --shadow: var(--size-1) var(--size-1) 0 0 var(--text-1);
-    --shadow-hover: 0px 0px 0 0 var(--text-1);
-  }
-</style>
-
-<style>
-  .headline {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: var(--size-3);
-    gap: var(--size-3);
-  }
-
-  img {
-    border: var(--border-size-2) solid var(--stroke);
   }
 </style>
