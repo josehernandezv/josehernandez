@@ -19,7 +19,7 @@ const { frontmatter } = Astro.props;
   </div>
 </BaseLayout>
 
-<style>
+<style is:global>
   @import "open-props/media";
 
   .cover {
@@ -45,6 +45,38 @@ const { frontmatter } = Astro.props;
     .content {
       border-left: var(--border-size-2) solid var(--stroke);
       border-right: var(--border-size-2) solid var(--stroke);
+      padding: var(--size-fluid-2) var(--size-fluid-4);
     }
+  }
+
+  .content h1 {
+    margin-top: 0;
+    margin-bottom: var(--size-fluid-2);
+  }
+  .content h2 {
+    margin-top: var(--size-fluid-4);
+    margin-bottom: var(--size-fluid-1);
+  }
+  .content h3 {
+    margin-top: var(--size-fluid-2);
+    margin-bottom: var(--size-fluid-1);
+  }
+  .content p {
+    margin-block: var(--size-fluid-2);
+  }
+  .content ul {
+    margin-block: var(--size-fluid-2);
+  }
+  .content li {
+    margin-block: var(--size-fluid-2);
+  }
+
+  .content a {
+    color: var(--accent-text);
+    font-weight: var(--font-weight-5);
+  }
+
+  .content a:hover {
+    color: var(--accent);
   }
 </style>
