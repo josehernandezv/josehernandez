@@ -15,8 +15,9 @@ const links = [
     text: "Uses",
   },
   {
-    href: "/",
+    href: "/assets/resume.pdf",
     text: "Resume",
+    target: "_blank",
   },
 ];
 ---
@@ -49,7 +50,9 @@ const links = [
     {
       links.map((li) => (
         <li>
-          <a href={li.href}>{li.text}</a>
+          <a href={li.href} target={li.target || "_self"}>
+            {li.text}
+          </a>
           <div class="nav-link-underline" />
         </li>
       ))
