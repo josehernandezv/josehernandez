@@ -1,0 +1,82 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import imageSrc from "../assets/me.jpg";
+
+const title = "About José";
+const headline = "About Me";
+const content = `I am a passionate Software Engineer, specialized in front-end development using React and TypeScript. I have a strong affinity for design and user experience, constantly seeking opportunities to improve the design, accessibility and functionality of my work.
+My relentless pursuit of learning ensures that I stay updated with the latest trends and technologies.`;
+---
+
+<Layout title={title}>
+  <div class="container grid">
+    <div>
+      <h1>{headline}</h1>
+      <p>{content}</p>
+    </div>
+    <Image src={imageSrc} alt="A photo of me." />
+  </div>
+</Layout>
+
+<style is:global>
+  :root {
+    --primary: hsl(306, 18%, 48%);
+    --primary-text: hsl(306, 18%, 88%);
+    --secondary: #4b546b;
+    --text-1: hsl(222, 45%, 9%);
+    --text-2: hsl(222, 45%, 40%);
+    --accent: #fb7da8;
+    --accent-text: #0c1220;
+    --stroke: hsl(222, 45%, 9%);
+    --surface: hsl(306, 18%, 78%);
+    --surface-2: hsl(306, 18%, 68%);
+    --surface-3: hsl(306, 18%, 58%);
+    --surface-4: hsl(306, 18%, 48%);
+  }
+</style>
+<style>
+  @import "open-props/media";
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .grid > div:first-child {
+    padding: var(--size-fluid-2);
+    background-color: var(--surface);
+  }
+  .grid img {
+    border-top: var(--border-size-2) solid var(--stroke);
+    width: 100%;
+    height: auto;
+  }
+  .grid h1 {
+    margin-bottom: var(--size-fluid-2);
+  }
+  .grid p {
+    margin-block: var(--size-fluid-2);
+  }
+
+  @media (--lg-n-above) {
+    .grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .grid img {
+      border-top: none;
+      border-left: var(--border-size-2) solid var(--stroke);
+    }
+    .grid p {
+      font-size: var(--font-size-fluid-1);
+      line-height: var(--font-lineheight-4);
+    }
+    .grid > div:first-child {
+      padding: var(--size-fluid-5) var(--size-fluid-2);
+    }
+  }
+  @media (--xxl-n-above) {
+    .grid {
+      border-left: var(--border-size-2) solid var(--stroke);
+      border-right: var(--border-size-2) solid var(--stroke);
+    }
+  }
+</style>

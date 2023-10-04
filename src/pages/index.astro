@@ -3,6 +3,7 @@ import IconLink from "../components/IconLink.astro";
 import Ticker from "../components/Ticker.astro";
 import Layout from "../layouts/Layout.astro";
 
+const title = "José Hernández";
 const preHeadline = "Hello internet 👋";
 const headline = "I'm José.";
 const about =
@@ -12,7 +13,7 @@ const youtube = "https://www.youtube.com/@josedev.";
 const linkedin = "https://www.linkedin.com/in/joseahernandezv/";
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title={title}>
   <section class="hero container">
     <div class="card headline">
       <h1>
