@@ -1,0 +1,19 @@
+---
+const today = new Date();
+---
+
+<footer>
+  &copy; {today.getFullYear()} José Hernández
+</footer>
+<style>
+  footer {
+    text-align: center;
+    padding: var(--size-fluid-1);
+    /* font-size: var(--font-size-fluid-0); */
+    font-size: var(--font-size-0);
+    /* color: var(--surface);
+    background-color: var(--stroke); */
+    border-top: var(--border-size-2) solid var(--stroke);
+    background-color: var(--surface);
+  }
+</style>
