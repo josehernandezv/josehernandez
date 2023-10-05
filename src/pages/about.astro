@@ -5,8 +5,12 @@ import imageSrc from "../assets/me.jpg";
 
 const title = "About José";
 const headline = "About Me";
-const content = `I am a passionate Software Engineer, specialized in front-end development using React and TypeScript. I have a strong affinity for design and user experience, constantly seeking opportunities to improve the design, accessibility and functionality of my work.
-My relentless pursuit of learning ensures that I stay updated with the latest trends and technologies.`;
+const content = `Hey, I'm José.
+I'm a Software Engineer and Karate athlete from Costa Rica 🇨🇷.
+I've been doing mobile and web development for over 7 years. Originally I wanted to be a designer, but I fell in love with programming and never looked back. I'm passionate about creating beautiful, accessible and performant experiences for the web.
+Outside of work, I'm currently pursuing my career as a Karate athlete. I'm a member of the Costa Rican National Team and I'm currently the #1 in the national ranking in my category.
+In my spare time, I enjoy spending time with my girlfriend, my family and my dogs.
+Some of my hobbies include drawing, playing the guitar, reading, and playing video games.`;
 ---
 
 <Layout title={title}>
@@ -55,6 +59,7 @@ My relentless pursuit of learning ensures that I stay updated with the latest tr
   }
   .grid p {
     margin-block: var(--size-fluid-2);
+    white-space: pre-wrap;
   }
 
   @media (--lg-n-above) {
@@ -64,6 +69,9 @@ My relentless pursuit of learning ensures that I stay updated with the latest tr
     .grid img {
       border-top: none;
       border-left: var(--border-size-2) solid var(--stroke);
+      height: 100%;
+      width: auto;
+      object-fit: cover;
     }
     .grid p {
       font-size: var(--font-size-fluid-1);
