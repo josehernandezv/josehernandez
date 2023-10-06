@@ -6,10 +6,15 @@ import imageSrc from "../assets/me.jpg";
 const title = "About José";
 const headline = "About Me";
 const content = `Hey, I'm José.
+
 I'm a Software Engineer and Karate athlete from Costa Rica 🇨🇷.
+
 I've been doing mobile and web development for over 7 years. Originally I wanted to be a designer, but I fell in love with programming and never looked back. I'm passionate about creating beautiful, accessible and performant experiences for the web.
+
 Outside of work, I'm currently pursuing my career as a Karate athlete. I'm a member of the Costa Rican National Team and I'm currently the #1 in the national ranking in my category.
+
 In my spare time, I enjoy spending time with my girlfriend, my family and my dogs.
+
 Some of my hobbies include drawing, playing the guitar, reading, and playing video games.`;
 ---
 
@@ -44,6 +49,8 @@ Some of my hobbies include drawing, playing the guitar, reading, and playing vid
   .grid {
     display: grid;
     grid-template-columns: 1fr;
+    height: 100%;
+    /* width: min(100%, var(--size-xl)); */
   }
   .grid > div:first-child {
     padding: var(--size-fluid-2);
@@ -60,6 +67,7 @@ Some of my hobbies include drawing, playing the guitar, reading, and playing vid
   .grid p {
     margin-block: var(--size-fluid-2);
     white-space: pre-wrap;
+    line-height: var(--font-lineheight-4);
   }
 
   @media (--lg-n-above) {
@@ -74,8 +82,8 @@ Some of my hobbies include drawing, playing the guitar, reading, and playing vid
       object-fit: cover;
     }
     .grid p {
-      font-size: var(--font-size-fluid-1);
-      line-height: var(--font-lineheight-4);
+      /* font-size: var(--font-size-fluid-1); */
+      font-size: var(--font-size-3);
     }
     .grid > div:first-child {
       padding: var(--size-fluid-5) var(--size-fluid-2);
