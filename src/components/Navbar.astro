@@ -22,7 +22,7 @@ const links = [
 ];
 ---
 
-<nav class="container">
+<nav class="container" transition:persist>
   <a href="/" class="logo">
     <span>JH.</span>
   </a>
@@ -229,5 +229,8 @@ const links = [
     const expanded = menuButton.getAttribute("aria-expanded") === "true";
     menuButton.setAttribute("aria-expanded", String(!expanded));
     // menu.hidden = expanded;
+  });
+  document.addEventListener("astro:after-swap", () => {
+    menuButton?.setAttribute("aria-expanded", "false");
   });
 </script>
