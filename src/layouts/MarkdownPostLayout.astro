@@ -10,7 +10,7 @@ interface Props {
 const { frontmatter } = Astro.props;
 ---
 
-<BaseLayout title={frontmatter.title}>
+<BaseLayout title={frontmatter.title} theme={frontmatter.theme || "gamboge"}>
   <div class="cover">
     <Image src={frontmatter.cover} alt={frontmatter.coverAlt} />
   </div>
@@ -28,7 +28,7 @@ const { frontmatter } = Astro.props;
     align-items: center;
     justify-content: center;
   }
-  img {
+  .cover img {
     max-width: min(100%, var(--size-lg));
     border: var(--border-size-2) solid var(--stroke);
     border-top: none;

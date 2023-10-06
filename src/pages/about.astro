@@ -18,7 +18,7 @@ In my spare time, I enjoy spending time with my girlfriend, my family and my dog
 Some of my hobbies include drawing, playing the guitar, reading, and playing video games.`;
 ---
 
-<Layout title={title}>
+<Layout title={title} theme="lilac">
   <div class="container grid">
     <div>
       <h1>{headline}</h1>
@@ -28,22 +28,6 @@ Some of my hobbies include drawing, playing the guitar, reading, and playing vid
   </div>
 </Layout>
 
-<style is:global>
-  :root {
-    --primary: hsl(306, 18%, 48%);
-    --primary-text: hsl(306, 18%, 88%);
-    --secondary: #4b546b;
-    --text-1: hsl(222, 45%, 9%);
-    --text-2: hsl(222, 45%, 40%);
-    --accent: #fb7da8;
-    --accent-text: #0c1220;
-    --stroke: hsl(222, 45%, 9%);
-    --surface: hsl(306, 18%, 78%);
-    --surface-2: hsl(306, 18%, 68%);
-    --surface-3: hsl(306, 18%, 58%);
-    --surface-4: hsl(306, 18%, 48%);
-  }
-</style>
 <style>
   @import "open-props/media";
   .grid {
@@ -86,7 +70,7 @@ Some of my hobbies include drawing, playing the guitar, reading, and playing vid
       font-size: var(--font-size-3);
     }
     .grid > div:first-child {
-      padding: var(--size-fluid-5) var(--size-fluid-2);
+      padding: var(--size-fluid-5) var(--size-fluid-4);
     }
   }
   @media (--xxl-n-above) {

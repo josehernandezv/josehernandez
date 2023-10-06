@@ -4,16 +4,22 @@ import "@fontsource/space-mono";
 import "@fontsource-variable/bitter";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
+import { ViewTransitions, fade, slide } from "astro:transitions";
 
 interface Props {
   title: string;
+  theme: string;
 }
 
-const { title } = Astro.props;
+const { title, theme } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html
+  lang="en"
+  data-theme={theme}
+  transition:animate={fade({ duration: "0.6s" })}
+>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
@@ -21,87 +27,150 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <ViewTransitions />
   </head>
   <body>
     <header>
       <Navbar />
     </header>
-    <main>
+    <main transition:animate={slide({ duration: "0.6s" })}>
       <slot />
     </main>
     <Footer />
+    <style is:global>
+      @import "open-props/normalize";
+      @import "open-props/media";
+
+      ::view-transition-group(*) {
+        animation-timing-function: var(--ease-squish-1);
+        animation-timing-function: var(--ease-in-out-4);
+      }
+      /* ::view-transition-old(*) {
+        animation-duration: 0.4s;
+      }
+      ::view-transition-new(*) {
+        animation-duration: 0.6s;
+      } */
+
+      @font-face {
+        font-family: "ClashDisplay-Variable";
+        src: url("/fonts/ClashDisplay-Variable.woff2") format("woff2");
+        font-weight: 200 700;
+        font-display: swap;
+        font-style: normal;
+      }
+
+      * {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+      }
+
+      html {
+        /* font-family: system-ui, sans-serif; */
+        font-family: "ClashDisplay-Variable", system-ui, sans-serif;
+        background-color: var(--surface-2);
+        transition: background-color 0.6s var(--ease-in-out-4);
+        color: var(--text-1);
+        accent-color: var(--accent);
+      }
+
+      :root {
+        --shadow: var(--size-1) var(--size-1) 0 0 var(--text-1);
+        --shadow-hover: 0px 0px 0 0 var(--text-1);
+      }
+
+      /* THEMES */
+      [data-theme="green"] {
+        color-scheme: light dark;
+        --primary: #39675d;
+        --primary-text: #c5d0b2;
+        --secondary: #5e8c7b;
+        --text-1: #15221b;
+        --text-2: #21443e;
+        --accent: #f3983c;
+        --accent-text: #15221b;
+        --stroke: #15221b;
+        --surface: hsl(146, 21%, 60%);
+        --surface-2: hsl(146, 21%, 50%);
+        --surface-3: hsl(146, 21%, 40%);
+        --surface-4: hsl(146, 21%, 30%);
+        /* --brand: var(--purple-5); */
+      }
+      [data-theme="lilac"] {
+        color-scheme: light dark;
+        --primary: hsl(306, 18%, 48%);
+        --primary-text: hsl(306, 18%, 88%);
+        --secondary: #4b546b;
+        --text-1: hsl(222, 45%, 9%);
+        --text-2: hsl(222, 45%, 40%);
+        --accent: #fb7da8;
+        --accent-text: #0c1220;
+        --stroke: hsl(222, 45%, 9%);
+        --surface: hsl(306, 18%, 78%);
+        --surface-2: hsl(306, 18%, 68%);
+        --surface-3: hsl(306, 18%, 58%);
+        --surface-4: hsl(306, 18%, 48%);
+      }
+      [data-theme="gamboge"] {
+        color-scheme: light dark;
+        --primary: #c07f28;
+        --primary-text: #5b4a39;
+        --secondary: #dbab3d;
+        --text-1: hsl(25, 70%, 9%);
+        --text-2: hsl(25, 70%, 59%);
+        --accent: hsl(183, 100%, 75%);
+        --accent-text: hsl(183, 100%, 15%);
+        --stroke: hsl(25, 70%, 9%);
+        --surface: hsl(41, 79%, 53%);
+        --surface-2: hsl(41, 79%, 43%);
+        --surface-3: hsl(41, 79%, 33%);
+        --surface-4: hsl(41, 79%, 23%);
+      }
+      code {
+        font-family:
+          Menlo,
+          Monaco,
+          Lucida Console,
+          Liberation Mono,
+          DejaVu Sans Mono,
+          Bitstream Vera Sans Mono,
+          Courier New,
+          monospace;
+      }
+
+      body {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+      }
+
+      header {
+        border-bottom: var(--border-size-2) solid var(--stroke);
+        background-color: var(--surface);
+      }
+
+      main {
+        /* background-repeat: repeat; */
+        background-image: repeating-linear-gradient(
+            to right,
+            var(--surface-3),
+            var(--surface-3) 1px,
+            transparent 1px,
+            transparent var(--size-7)
+          ),
+          repeating-linear-gradient(
+            to bottom,
+            var(--surface-3),
+            var(--surface-3) 1px,
+            transparent 1px,
+            transparent var(--size-7)
+          );
+      }
+
+      .container {
+        width: min(100%, var(--size-xxl));
+        margin-inline: auto;
+      }
+    </style>
   </body>
 </html>
-<style is:global>
-  @import "open-props/normalize";
-  @import "open-props/media";
-
-  @font-face {
-    font-family: "ClashDisplay-Variable";
-    src: url("/fonts/ClashDisplay-Variable.woff2") format("woff2");
-    font-weight: 200 700;
-    font-display: swap;
-    font-style: normal;
-  }
-
-  * {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-  }
-  :root {
-    --shadow: var(--size-1) var(--size-1) 0 0 var(--text-1);
-    --shadow-hover: 0px 0px 0 0 var(--text-1);
-  }
-  html {
-    /* font-family: system-ui, sans-serif; */
-    font-family: "ClashDisplay-Variable", system-ui, sans-serif;
-    background-color: var(--surface-2);
-    color: var(--text-1);
-    accent-color: var(--accent);
-  }
-  code {
-    font-family:
-      Menlo,
-      Monaco,
-      Lucida Console,
-      Liberation Mono,
-      DejaVu Sans Mono,
-      Bitstream Vera Sans Mono,
-      Courier New,
-      monospace;
-  }
-
-  body {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-  }
-
-  header {
-    border-bottom: var(--border-size-2) solid var(--stroke);
-    background-color: var(--surface);
-  }
-
-  main {
-    /* background-repeat: repeat; */
-    background-image: repeating-linear-gradient(
-        to right,
-        var(--surface-3),
-        var(--surface-3) 1px,
-        transparent 1px,
-        transparent var(--size-7)
-      ),
-      repeating-linear-gradient(
-        to bottom,
-        var(--surface-3),
-        var(--surface-3) 1px,
-        transparent 1px,
-        transparent var(--size-7)
-      );
-  }
-
-  .container {
-    width: min(100%, var(--size-xxl));
-    margin-inline: auto;
-  }
-</style>

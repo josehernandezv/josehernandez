@@ -13,7 +13,7 @@ const youtube = "https://www.youtube.com/@josedev.";
 const linkedin = "https://www.linkedin.com/in/joseahernandezv/";
 ---
 
-<Layout title={title}>
+<Layout title={title} theme="green">
   <section class="hero container">
     <div class="card headline">
       <h1>
@@ -48,24 +48,6 @@ const linkedin = "https://www.linkedin.com/in/joseahernandezv/";
   </section>
   <Ticker />
 </Layout>
-
-<style is:global>
-  :root {
-    --primary: #39675d;
-    --primary-text: #c5d0b2;
-    --secondary: #5e8c7b;
-    --text-1: #15221b;
-    --text-2: #21443e;
-    --accent: #f3983c;
-    --accent-text: #15221b;
-    --stroke: #15221b;
-    --surface: hsl(146, 21%, 60%);
-    --surface-2: hsl(146, 21%, 50%);
-    --surface-3: hsl(146, 21%, 40%);
-    --surface-4: hsl(146, 21%, 30%);
-    /* --brand: var(--purple-5); */
-  }
-</style>
 
 <style>
   @import "open-props/media";
