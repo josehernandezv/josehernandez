@@ -1,6 +1,8 @@
 ---
+import { getCollection } from "astro:content";
 import IconLink from "../components/IconLink.astro";
 import Ticker from "../components/Ticker.astro";
+import ProjectCard from "../components/ProjectCard.astro";
 import Layout from "../layouts/Layout.astro";
 
 const title = "José Hernández";
@@ -11,6 +13,11 @@ const about =
 const github = "https://github.com/josehernandezv";
 const youtube = "https://www.youtube.com/@josedev.";
 const linkedin = "https://www.linkedin.com/in/joseahernandezv/";
+
+const projects = await getCollection(
+  "projects",
+  ({ data }) => data.type === "personal"
+);
 ---
 
 <Layout title={title} theme="green">
@@ -47,6 +54,12 @@ const linkedin = "https://www.linkedin.com/in/joseahernandezv/";
       </div> -->
   </section>
   <Ticker />
+  <section class="container projects">
+    <h2>Recent Projects</h2>
+    <div class="projects-grid">
+      {projects.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </section>
 </Layout>
 
 <style>
@@ -60,7 +73,7 @@ const linkedin = "https://www.linkedin.com/in/joseahernandezv/";
 
   .card {
     border: var(--border-size-2) solid var(--stroke);
-    padding: var(--size-3);
+    padding: var(--size-fluid-2);
     display: inline-block;
     box-shadow: var(--shadow);
     background-color: var(--surface);
@@ -106,5 +119,26 @@ const linkedin = "https://www.linkedin.com/in/joseahernandezv/";
   .links {
     display: flex;
     gap: var(--size-4);
+  }
+
+  .projects {
+    width: min(calc(100% - var(--size-fluid-4)), var(--size-xl));
+    padding-top: var(--size-fluid-6);
+    padding-bottom: var(--size-fluid-4);
+  }
+  .projects-grid {
+    display: grid;
+    padding-top: var(--size-fluid-3);
+    /* grid-template-columns: repeat(
+      auto-fill,
+      minmax(min(100%, var(--size-xs)), 1fr)
+    ); */
+    grid-template-columns: 1fr;
+    gap: var(--size-fluid-3);
+  }
+  @media (--lg-n-above) {
+    .projects-grid {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 </style>

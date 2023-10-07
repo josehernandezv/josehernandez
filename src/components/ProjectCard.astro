@@ -1,0 +1,70 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+interface Props {
+  project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+---
+
+<a href={`/projects/${project.slug}`}>
+  <article>
+    <Image
+      transition:name="hero"
+      src={project.data.cover}
+      alt={project.data.coverAlt}
+    />
+    <!-- <a href={`/projects/${project.slug}`}>{project.data.title}</a>
+    <time datetime={project.data.updatedAt.toISOString()}>
+      {project.data.updatedAt.toDateString()}
+    </time> -->
+    <div>
+      <h3>
+        {project.data.title}
+      </h3>
+    </div>
+    <p>{project.data.excerpt}</p>
+    <div class="tags">
+      {project.data.tags.map((i) => <span>{i}</span>)}
+    </div>
+  </article>
+</a>
+
+<style>
+  a:hover {
+    text-decoration: none;
+  }
+  article {
+    background-color: var(--surface);
+    padding: var(--size-fluid-3);
+    border: var(--border-size-2) solid var(--stroke);
+    box-shadow: var(--shadow);
+    color: var(--text-1);
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-fluid-3);
+  }
+  img {
+    width: 100%;
+    border: var(--border-size-2) solid var(--stroke);
+  }
+  h3 {
+    /* font-size: var(--font-size-4); */
+    font-weight: var(--font-weight-6);
+    border-bottom: var(--border-size-2) solid var(--surface);
+    transition: border-bottom-color 0.1s ease-in-out;
+    display: inline;
+  }
+  .tags {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--size-2);
+    flex-wrap: wrap;
+    color: var(--text-2);
+    font-size: var(--font-size-0);
+  }
+  article:is(:hover, :focus-within) h3 {
+    border-bottom-color: var(--stroke);
+  }
+</style>

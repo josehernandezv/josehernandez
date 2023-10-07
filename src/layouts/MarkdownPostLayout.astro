@@ -12,7 +12,11 @@ const { frontmatter } = Astro.props;
 
 <BaseLayout title={frontmatter.title} theme={frontmatter.theme || "gamboge"}>
   <div class="cover">
-    <Image src={frontmatter.cover} alt={frontmatter.coverAlt} />
+    <Image
+      transition:name="hero"
+      src={frontmatter.cover}
+      alt={frontmatter.coverAlt}
+    />
   </div>
   <div class="content">
     <slot />
