@@ -1,25 +1,66 @@
 ---
 import { Image } from "astro:assets";
 import BaseLayout from "./Layout.astro";
+import { Icon } from "astro-icon";
 
 import type { CollectionEntry } from "astro:content";
 interface Props {
-  frontmatter: CollectionEntry<"blog">["data"];
+  frontmatter: CollectionEntry<"blog" | "projects">["data"];
+  slug: string;
 }
 
-const { frontmatter } = Astro.props;
+const { frontmatter, slug } = Astro.props;
+
+const github = "repository" in frontmatter ? frontmatter.repository : null;
+const websiteUrl = "url" in frontmatter ? frontmatter.url : null;
+
+function formatDate(date: Date) {
+  return new Date(date).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
+const createdAt =
+  "createdAt" in frontmatter ? formatDate(frontmatter.createdAt) : null;
+const updatedAt =
+  "updatedAt" in frontmatter
+    ? `Last updated on ${formatDate(frontmatter.updatedAt)}`
+    : null;
+
+const date = updatedAt || createdAt;
 ---
 
-<BaseLayout title={frontmatter.title} theme={frontmatter.theme || "gamboge"}>
+<BaseLayout title={frontmatter.title} theme={frontmatter.theme || "tapedeck"}>
   <div class="cover">
     <Image
-      transition:name="hero"
+      transition:name={`cover-${slug}`}
       src={frontmatter.cover}
       alt={frontmatter.coverAlt}
     />
   </div>
   <div class="content">
-    <slot />
+    <div>
+      <h1>{frontmatter.title}</h1>
+      {
+        (date || github || websiteUrl) && (
+          <div class="post-meta">
+            {date && <span class="date">{date}</span>}
+            {github && (
+              <a href={github} target="_blank">
+                <Icon name="github" pack="fe" />
+              </a>
+            )}
+            {websiteUrl && (
+              <a href={websiteUrl} target="_blank">
+                <Icon name="link-external" pack="fe" />
+              </a>
+            )}
+          </div>
+        )
+      }
+      <slot />
+    </div>
   </div>
 </BaseLayout>
 
@@ -43,19 +84,14 @@ const { frontmatter } = Astro.props;
     margin-inline: auto;
     background-color: var(--surface);
     padding: var(--size-fluid-2);
-  }
-
-  @media (--lg-n-above) {
-    .content {
-      border-left: var(--border-size-2) solid var(--stroke);
-      border-right: var(--border-size-2) solid var(--stroke);
-      padding: var(--size-fluid-2) var(--size-fluid-4);
-    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .content h1 {
     margin-top: 0;
-    margin-bottom: var(--size-fluid-2);
+    /* margin-bottom: var(--size-fluid-2); */
   }
   .content h2 {
     margin-top: var(--size-fluid-4);
@@ -67,12 +103,14 @@ const { frontmatter } = Astro.props;
   }
   .content p {
     margin-block: var(--size-fluid-2);
+    line-height: var(--font-lineheight-4);
   }
   .content ul {
     margin-block: var(--size-fluid-2);
   }
   .content li {
     margin-block: var(--size-fluid-2);
+    line-height: var(--font-lineheight-4);
   }
 
   .content a {
@@ -82,5 +120,31 @@ const { frontmatter } = Astro.props;
 
   .content a:hover {
     color: var(--accent);
+  }
+
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--size-2);
+    flex-wrap: wrap;
+  }
+
+  .date {
+    font-size: var(--font-size-0);
+    font-style: italic;
+  }
+
+  .post-meta [astro-icon] {
+    color: var(--text-1);
+    inline-size: var(--size-6);
+    block-size: var(--size-6);
+  }
+
+  @media (--lg-n-above) {
+    .content {
+      border-left: var(--border-size-2) solid var(--stroke);
+      border-right: var(--border-size-2) solid var(--stroke);
+      padding: var(--size-fluid-2) var(--size-fluid-4);
+    }
   }
 </style>

@@ -11,7 +11,7 @@ const { project } = Astro.props;
 <a href={`/projects/${project.slug}`}>
   <article>
     <Image
-      transition:name="hero"
+      transition:name={`cover-${project.slug}`}
       src={project.data.cover}
       alt={project.data.coverAlt}
     />

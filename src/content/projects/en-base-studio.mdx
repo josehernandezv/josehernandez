@@ -1,0 +1,39 @@
+---
+title: En Base Studio Online Store
+excerpt: An E-commerce website for my girlfriend's business.
+cover: ./en-base-cover.png
+coverAlt: A screenshot of enbasestudio.com taken on October, 2023.
+theme: tapedeck
+createdAt: 2021-02-13
+updatedAt: 2022-12-22
+url: https://www.enbasestudio.com/
+# repository: https://github.com/josehernandezv/josehernandez
+tags: ["react", "gatsby", "snipcart", "sanity", "chakra-ui", "netlify"]
+---
+
+This project was created for my girlfriend's business. She is an architect and she designs and sells home decor products made with concrete.
+
+Right now the website is not live as she is focused on selling her products in local stores and events. But we are planning to launch the website again in the future.
+
+## Tech Stack
+
+- [Gatsby](https://www.gatsbyjs.com/) for the frontend. I really enjoy working with Gatsby, even though it's popularity has decreased a lot in the last few years. It might be a little rough to get started because of the graphql queries but once you get the hang of it it's really easy to work with, also the plugin ecosystem is great.
+- [Snipcart](https://snipcart.com/) for the shopping cart. I wanted to try Snipcart for a while and this was the perfect project for it. I didn't want to depend on a big ecommerce platform like Shopify or BigCommerce. I heard a lot of good things about Snipcart and I wanted to try it myself. It's really easy to set up and it's very customizable.
+- [Sanity](https://www.sanity.io/) for the CMS. Sanity is great, very customizable and easy to use as a developer. I'm using it to manage the products and the content of the website. I'm using the [Gatsby Source Sanity](https://www.gatsbyjs.com/plugins/gatsby-source-sanity/) plugin to get the data from Sanity and the optimized images. With the Gatsby plugin I can query the data with graphql. Sanity offers an alternative to graphql called [GROQ](https://www.sanity.io/docs/groq) but I didn't want to learn a new query language just for this project.
+- [Chakra](https://chakra-ui.com/) for the UI. All the components, with the exception of the shopping cart, were created with Chakra. It's very easy to use and I was able to find good examples, specially in the [Chakra templates](https://chakra-templates.dev/) website. It uses CSS-in-JS under the hood with emotion but the developer experience is very similar to Tailwind.
+
+### Key learnings
+
+While working on this project I learned a lot about e-commerce. Even though the stack works great I would probably use a different approach in the future.
+There are a lot of edge cases that you have to consider when working with e-commerce. For example inventory management, shipping, taxes, etc.
+
+I would probably use a big e-commerce platform like Shopify or BigCommerce. They have a lot of features out of the box and they are very customizable. My only concern is that they could be a little expensive for a small business.
+
+### Future Plans
+
+I want to rebuild this project with a different stack, mostly because I want to learn something new.
+I want to try the Shopify framework [Hydrogen](https://hydrogen.shopify.dev/), it's build on top of [Remix](https://remix.run/) and it looks very promising. I would probably continue using Sanity but for the UI I want to switch to [Tailwind](https://tailwindcss.com/).
+
+I heard that Remix is adopting server components so I would probably wait for that to be released before starting the project, the last thing I want is to do a big refactor after a few months.
+
+I could also use [Next.js](https://nextjs.org/) with [Shopify](https://shopify.dev/) or [BigCommerce](https://developer.bigcommerce.com/). I need to do more research before deciding.

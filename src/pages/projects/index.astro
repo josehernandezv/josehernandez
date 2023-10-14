@@ -5,14 +5,50 @@ import Layout from "../../layouts/Layout.astro";
 
 const title = "My projects";
 
-const projects = await getCollection(
-  "projects",
-  ({ data }) => data.type === "personal"
-);
+const projects = (
+  await getCollection("projects", ({ data }) => data.type === "personal")
+).sort((a, b) => b.data.updatedAt.getTime() - a.data.updatedAt.getTime());
 ---
 
-<Layout title={title} theme="green">
-  <ul>
-    {projects.map((project) => <ProjectCard project={project} />)}
-  </ul>
+<Layout title={title} theme="pumpkin">
+  <div class="container projects">
+    <h1>Personal Projects</h1>
+    <p>
+      This are some of the projects I've been working on in my free time. I
+      always try to choose different technologies and frameworks to learn new
+      things.
+    </p>
+    <div class="projects-grid">
+      {projects.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </div>
 </Layout>
+
+<style>
+  @import "open-props/media";
+
+  .projects {
+    width: min(calc(100% - var(--size-fluid-4)), var(--size-xl));
+    padding-top: var(--size-fluid-2);
+    padding-bottom: var(--size-fluid-4);
+  }
+
+  p {
+    line-height: var(--font-lineheight-4);
+  }
+  .projects-grid {
+    display: grid;
+    padding-top: var(--size-fluid-3);
+    /* grid-template-columns: repeat(
+      auto-fill,
+      minmax(min(100%, var(--size-xs)), 1fr)
+    ); */
+    grid-template-columns: 1fr;
+    gap: var(--size-fluid-3);
+  }
+  @media (--lg-n-above) {
+    .projects-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

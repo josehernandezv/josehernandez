@@ -6,6 +6,6 @@ const entry = await getEntry("blog", "uses");
 const { Content } = await entry.render();
 ---
 
-<MarkdownPostLayout frontmatter={entry.data}>
+<MarkdownPostLayout frontmatter={entry.data} slug={entry.slug}>
   <Content />
 </MarkdownPostLayout>

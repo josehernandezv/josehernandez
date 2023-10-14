@@ -1,44 +1,54 @@
 ---
-title: Karate Fénix
-excerpt: Here is a list of some of the gear, software and apps I use on a daily basis in my attempt to make the world a better place.
-cover: ../blog/desk.jpeg
-coverAlt: A photograph of my desk taken on September, 2023.
-theme: gamboge
-createdAt: 2021-09-26
-updatedAt: 2021-09-26
+title: Karate Learning Platform
+excerpt: A platform for a karate school where students can learn and practice karate techniques. The project includes a video learning platform, and some informational about the school.
+cover: ./karate-cover.png
+coverAlt: A screenshot of www.karatefenix.com taken on October, 2023.
+theme: tapedeck
+createdAt: 2023-07-13
+updatedAt: 2023-10-09
 url: https://www.karatefenix.com/
 repository: https://github.com/josehernandezv/karatefenix
 tags: ["svelte", "sveltekit", "tailwindcss", "vercel", "supabase", "directus"]
 ---
 
-# Karate Fénix
+This project was created for my family's karate school. The main goal is to provide a video learning platform where students can learn and practice karate techniques.
 
-Here is a list of some of the gear, software and apps I use on a daily basis in my attempt to make the world a better place.
+I am constantly adding new features. I divided the project development into 3 main phases:
 
-If you want to see what other developers are using, check out [uses.tech](https://uses.tech) for a list of everyone's uses pages.
+### Phase 1: Landing Page
 
-### Editor + Terminal
+The first phase was to create a landing page for the school. The landing page includes information about the school, the instructors and testimonials. There is also an about page, a frequently asked questions page and a contact page with a form and a map.
 
-- I use [Visual Studio Code](https://code.visualstudio.com/). I tried to switch to Neovim but it was too much of a pain to get set up. I might try again in the future.
-- My current theme is [Winter is Coming](https://marketplace.visualstudio.com/items?itemName=johnpapa.winteriscoming) with the [Recursive Mono](https://www.recursive.design/) font. For the icons I use [Bearded Icons](https://marketplace.visualstudio.com/items?itemName=BeardedBear.beardedicons).
-- My terminal is [Warp](https://www.warp.dev/) but most of the time I just use the built in VS Code terminal.
+For this phase I could have used any static site generator or even a no-code tool like Webflow. But I decided to use SvelteKit since the beginning because I need to add more dynamic features in the next phases.
 
-### Desktop Apps
+This phase is already done and deployed to [karatefenix.com](https://www.karatefenix.com/).
 
-- I have been using [Arc](https://arc.net/) as my main browser for a while now. The experience is great and it's built on top of Chrome so all my extensions work.
-- For window management I use [Magnet](https://magnet.crowdcafe.com/).
-- I use [Raycast](https://www.raycast.com/) for quick access to all my apps and workflows. I never tried Alfred but I've heard it's good too.
-- I use [Notion](https://www.notion.so/) for all my notes, reminders, todos, project planning, etc.
+### Phase 2. Blog and Classes page
 
-### Desk Setup
+The second phase is to add two more sections to the website: a blog and a classes page.
 
-- My computer is a 2018 15" MacBook Pro.
-- My monitor is a 35" [ASUS TUF Gaming VG35VQ](https://www.asus.com/displays-desktops/monitors/tuf-gaming/tuf-gaming-vg35vq/).
-- My Keyboard is a [IQUNIX F96 Coral Sea](https://iqunix.store/products/iqunix-f97-coral-sea-wireless-mechanical-keyboard) and my mouse is a [Logitech MX Master 3s](https://www.logitech.com/en-us/products/mice/mx-master-3s.910-006556.html) but sometimes I switch to a regular magic mouse.
-- I put my Mac on a [Bestand laptop stand](https://www.amazon.com/Laptop-Stand-Aluminum-Computer-Notebooks/dp/B074DTL449/ref=sr_1_3?crid=MLUN31F6J6JB&keywords=bestand%2Blaptop%2Bstand&qid=1696094687&sprefix=bestand%2Caps%2C162&sr=8-3&th=1).
-- To connect everything to my mac I use a [Satechi Type-C adapter](https://www.amazon.com/Satechi-Multimedia-Adapter-Gigabit-Ethernet/dp/B07RH8L9GV/ref=sr_1_19?crid=VI4GTQVW7ZIU&keywords=satechi%2Busb%2Bc%2Bhub&qid=1696095398&sprefix=satechi%2B%2Caps%2C184&sr=8-19&ufe=app_do%3Aamzn1.fos.f5122f16-c3e8-4386-bf32-63e904010ad0&th=1).
-- My desk is an standing desk from [ErgoCR](https://ergocr.com/). I highly recommend it. It's a bit expensive but it's worth it.
+The blog will be used to share news and articles about karate. I will use [Directus](https://directus.io/) as a headless CMS to manage the blog content.
 
-### Other Gear
+The other page I want to add is a page to display information about the classes. This page will include a list of classes and the schedule. I am still thinking about the design and the features of this page. I want to display like a weekly calendar with the information but I don't have a clear idea yet.
 
-- I listen to [Bose Headphones 700](https://www.amazon.com/Bose-Cancelling-Wireless-Bluetooth-Headphones/dp/B07Q9MJKBV/ref=sr_1_3?crid=1G6X8EO1D3BOS&keywords=bose+noise+cancelling+headphones+700&qid=1696095551&sprefix=bose+no%2Caps%2C174&sr=8-3&ufe=app_do%3Aamzn1.fos.c3015c4a-46bb-44b9-81a4-dc28e6d374b3) all day at my desk and AirPods Pro when I'm out.
+Throughout the whole project I have been using Figma to design the UI first, I end up changing the design a lot but it helps me to have a clear idea of what I want to build.
+
+### Phase 3. Video Learning Platform
+
+The third phase is to add a video learning platform where students can learn and practice karate techniques. This is the main feature of the project.
+
+Each student will have only access to the videos of the techniques of their current belt. The videos will be organized by belt and by category. For example, the yellow belt will have access to the yellow belt videos and the white belt videos. The videos will be organized by category, for example, kihon, kata, kumite, etc.
+
+I also want the theming of the website to change depending on the belt of the student. For example, if the student is a yellow belt, the website will have a yellow theme.
+
+I am still thinking about where to host the videos. I am considering using Vimeo, Youtube, Cloudinary or Mux.
+
+The other thing I am still thinking about is how to handle authentication. The platform is only for students of the school (at least for now) and it's gonna used by people of all ages so I need to make it as easy as possible to use.
+I'm not sure if I should use social logins, email and password, or something else like magic links. Also, for the registration I don't know if a form makes sense or if I should provide a way for the instructors to create the accounts.
+
+## Tech Stack
+
+- [SvelteKit](https://kit.svelte.dev/) for the frontend. Great choice for this project. It has a great developer experience and it allows me to create static pages and dynamic pages with server side rendering.
+- [TailwindCSS](https://tailwindcss.com/) for the styling with [DaisyUI](https://daisyui.com/). I love TailwindCSS and I use it all the time. I decided to use DaisyUI because it has some nice components and it's easy to customize.
+- [Supabase](https://supabase.io/) for the database, authentication and storage. Supabase is a great tool. It's easy to use and it has a great developer experience. It provides a PostgreSQL database, a lot of authentication methods and a storage service. Right now I'm under the free plan but I'm considering upgrading to the paid plan in the future to get more storage and some other features like image transformations.
+- [Directus](https://directus.io/) for the headless CMS. I needed an easy to use CMS for the instructors to manage the data. I wanted to use an already built CMS instead of building my own because I didn't want to spend a lot of time on this. I needed something that I could connect to Supabase and Directus was the best option. Right now I am self hosting it on render but I am looking for another option that offers a generous. I am under the free plan right now on Render but it's very slow. I don't want to pay to host the CMS as it's just gonna be used by a few people.
