@@ -2,8 +2,6 @@ lockfileVersion: 5.4
 
 specifiers:
   '@astrojs/mdx': ^1.1.0
-  '@fontsource-variable/bitter': ^5.0.9
-  '@fontsource/space-mono': ^5.0.12
   '@typescript-eslint/parser': ^6.7.2
   astro: ^3.1.0
   astro-icon: ^0.8.1
@@ -21,8 +19,6 @@ specifiers:
 
 dependencies:
   '@astrojs/mdx': 1.1.0_astro@3.1.0
-  '@fontsource-variable/bitter': 5.0.9
-  '@fontsource/space-mono': 5.0.12
   astro: 3.1.0
   astro-icon: 0.8.1
   open-props: 1.5.15
@@ -1154,14 +1150,6 @@ packages:
     resolution: {integrity: sha512-1S8uAY/MTJqVx0SC4epBq+N2yhuwtNwLbJYNZyhL2pO1ZVKn5HFXav5T41Ryzy9K9V7ZId2JB2oy/W4aCd9/2w==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
-
-  /@fontsource-variable/bitter/5.0.9:
-    resolution: {integrity: sha512-PrV2f240SRC9FN2MwDN0HA/JnCx0bFzUzAjT+XJXkH8vCv7ZbhgUsFkx6bNy2W9kril/lfeoWD/gPowmzKzJ0Q==}
-    dev: false
-
-  /@fontsource/space-mono/5.0.12:
-    resolution: {integrity: sha512-ZPSKPLSYQ1xbs2J0nXEhki/cpwY5QkXejuErG0ssvOmNSQN+6JS1I955N2+jbFqisB6WMwdoblz1qCojXuqliw==}
-    dev: false
 
   /@humanwhocodes/config-array/0.11.11:
     resolution: {integrity: sha512-N2brEuAadi0CcdeMXUkhbZB84eskAc8MEX1By6qEchoVywSgXPIjou4rYsl0V3Hj0ZnuGycGCjdNgockbzeWNA==}

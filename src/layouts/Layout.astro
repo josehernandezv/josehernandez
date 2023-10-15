@@ -1,17 +1,19 @@
 ---
-import "@fontsource/space-mono";
-// Supports weights 100-900
-import "@fontsource-variable/bitter";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
-import { ViewTransitions, fade, slide } from "astro:transitions";
-
+import { ViewTransitions, fade } from "astro:transitions";
+import ogImage from "../assets/og-image.png";
 interface Props {
   title: string;
   theme: string;
+  description?: string;
 }
 
-const { title, theme } = Astro.props;
+const {
+  title = "José Hernández",
+  description = "Software engineer",
+  theme,
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -22,10 +24,21 @@ const { title, theme } = Astro.props;
 >
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <meta property="og:type" content="website" />
+
+    <meta property="og:title" content={title} />
+    <meta property="twitter:title" content={title} />
+
+    <meta property="og:description" content={description} />
+    <meta name="description" content={description} />
+
+    <meta property="og:image" content={ogImage.src} />
+    <meta property="og:image:secure_url" content={ogImage.src} />
+    <meta property="twitter:image" content={ogImage.src} />
+    <meta property="twitter:card" content="summary_large_image" />
     <title>{title}</title>
     <ViewTransitions />
   </head>

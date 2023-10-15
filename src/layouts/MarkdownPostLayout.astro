@@ -29,9 +29,14 @@ const updatedAt =
     : null;
 
 const date = updatedAt || createdAt;
+const description = "excerpt" in frontmatter ? frontmatter.excerpt : "";
 ---
 
-<BaseLayout title={frontmatter.title} theme={frontmatter.theme || "tapedeck"}>
+<BaseLayout
+  title={frontmatter.title}
+  theme={frontmatter.theme || "tapedeck"}
+  description={description}
+>
   <div class="cover">
     <Image
       transition:name={`cover-${slug}`}
