@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import BaseLayout from "./Layout.astro";
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 
 import type { CollectionEntry } from "astro:content";
 interface Props {
@@ -53,12 +53,12 @@ const description = "excerpt" in frontmatter ? frontmatter.excerpt : "";
             {date && <span class="date">{date}</span>}
             {github && (
               <a href={github} target="_blank">
-                <Icon name="github" pack="fe" />
+                <Icon name="fe:github" />
               </a>
             )}
             {websiteUrl && (
               <a href={websiteUrl} target="_blank">
-                <Icon name="link-external" pack="fe" />
+                <Icon name="fe:link-external" />
               </a>
             )}
           </div>
@@ -139,7 +139,7 @@ const description = "excerpt" in frontmatter ? frontmatter.excerpt : "";
     font-style: italic;
   }
 
-  .post-meta [astro-icon] {
+  .post-meta [data-icon] {
     color: var(--text-1);
     inline-size: var(--size-6);
     block-size: var(--size-6);

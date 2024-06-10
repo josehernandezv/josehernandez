@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 
 const links = [
   {
@@ -27,8 +27,8 @@ const links = [
     <span>JH.</span>
   </a>
   <button aria-expanded="false" aria-label="Toggle navigation" id="menu-button">
-    <Icon pack="fe" name="bar" />
-    <Icon pack="fe" name="close" />
+    <Icon name="fe:bar" />
+    <Icon name="fe:close" />
   </button>
   <ul class="nav-links">
     <!-- <li>
@@ -98,13 +98,13 @@ const links = [
     margin: 0;
     height: 100%;
   }
-  button [astro-icon] {
+  button [data-icon] {
     color: var(--stroke);
     inline-size: var(--size-7);
     block-size: var(--size-7);
   }
 
-  button [astro-icon="fe:close"] {
+  button [data-icon="fe:close"] {
     display: none;
   }
 
@@ -144,10 +144,10 @@ const links = [
   #menu-button[aria-expanded="true"] ~ .nav-links {
     transform: translateY(0);
   }
-  #menu-button[aria-expanded="true"] [astro-icon="fe:bar"] {
+  #menu-button[aria-expanded="true"] [data-icon="fe:bar"] {
     display: none;
   }
-  #menu-button[aria-expanded="true"] [astro-icon="fe:close"] {
+  #menu-button[aria-expanded="true"] [data-icon="fe:close"] {
     display: block;
   }
 

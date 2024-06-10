@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 import type { HTMLAttributes } from "astro/types";
 
 interface Props extends HTMLAttributes<"a"> {
@@ -11,7 +11,7 @@ const { href, name, color, pack = "fe", ...attrs } = Astro.props;
 ---
 
 <a href={href} {...attrs}>
-  <Icon name={name} pack={pack} />
+  <Icon name={`${pack}:${name}`} />
 </a>
 
 <style define:vars={{ iconColor: color }}>
@@ -28,7 +28,7 @@ const { href, name, color, pack = "fe", ...attrs } = Astro.props;
     background-color: var(--iconColor);
   }
 
-  [astro-icon] {
+  [data-icon] {
     color: var(--stroke);
     inline-size: var(--size-7);
     block-size: var(--size-7);
