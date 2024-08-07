@@ -5,7 +5,7 @@ cover: ./karate-cover.png
 coverAlt: A screenshot of www.karatefenix.com taken on October, 2023.
 theme: tapedeck
 createdAt: 2023-07-13
-updatedAt: 2023-10-09
+updatedAt: 2024-01-11
 url: https://www.karatefenix.com/
 repository: https://github.com/josehernandezv/karatefenix
 tags: ["svelte", "sveltekit", "tailwindcss", "vercel", "supabase", "directus"]
@@ -25,11 +25,11 @@ This phase is already done and deployed to [karatefenix.com](https://www.karatef
 
 ### Phase 2. Blog and Classes page
 
-The second phase is to add two more sections to the website: a blog and a classes page.
+The second phase consisted on adding two more sections to the website: a blog and a classes page.
 
-The blog will be used to share news and articles about karate. I will use [Directus](https://directus.io/) as a headless CMS to manage the blog content.
+The blog is used to share news and articles about karate. I used [Directus](https://directus.io/) as a headless CMS to manage the blog content.
 
-The other page I want to add is a page to display information about the classes. This page will include a list of classes and the schedule. I am still thinking about the design and the features of this page. I want to display like a weekly calendar with the information but I don't have a clear idea yet.
+The classes page displays information about the classes. And there is also a schedule page that displays the classes in a weekly calendar.
 
 Throughout the whole project I have been using Figma to design the UI first, I end up changing the design a lot but it helps me to have a clear idea of what I want to build.
 
@@ -51,4 +51,4 @@ I'm not sure if I should use social logins, email and password, or something els
 - [SvelteKit](https://kit.svelte.dev/) for the frontend. Great choice for this project. It has a great developer experience and it allows me to create static pages and dynamic pages with server side rendering.
 - [TailwindCSS](https://tailwindcss.com/) for the styling with [DaisyUI](https://daisyui.com/). I love TailwindCSS and I use it all the time. I decided to use DaisyUI because it has some nice components and it's easy to customize.
 - [Supabase](https://supabase.io/) for the database, authentication and storage. Supabase is a great tool. It's easy to use and it has a great developer experience. It provides a PostgreSQL database, a lot of authentication methods and a storage service. Right now I'm under the free plan but I'm considering upgrading to the paid plan in the future to get more storage and some other features like image transformations.
-- [Directus](https://directus.io/) for the headless CMS. I needed an easy to use CMS for the instructors to manage the data. I wanted to use an already built CMS instead of building my own because I didn't want to spend a lot of time on this. I needed something that I could connect to Supabase and Directus was the best option. Right now I am self hosting it on render but I am looking for another option that offers a generous. I am under the free plan right now on Render but it's very slow. I don't want to pay to host the CMS as it's just gonna be used by a few people.
+- [Directus](https://directus.io/) for the headless CMS. I needed an easy to use CMS for the instructors to manage the data. I wanted to use an already built CMS instead of building my own because I didn't want to spend a lot of time on this. I needed something that I could connect to Supabase and Directus was the best option. The downside is that Directus cannot be hosted in a serverless environment at the moment, so I am hosting it on Railway at the moment but I want to explore other options in the future.
